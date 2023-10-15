@@ -36,7 +36,8 @@ class CatsController < ApplicationController
   # PATCH/PUT /cats/1
   def update
     if @cat.update(cat_params)
-      redirect_to @cat, notice: "ねこを更新しました。", status: :see_other
+      # リダイレクトがないと暗黙的に`render`が実行される
+      # Acceptフィールドでturbo-streamのレスポンスを要求している場合、update.turbo_stream.erbがレンダリングされる
     else
       render :edit, status: :unprocessable_entity
     end
