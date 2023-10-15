@@ -38,6 +38,7 @@ class CatsController < ApplicationController
     if @cat.update(cat_params)
       # リダイレクトがないと暗黙的に`render`が実行される
       # Acceptフィールドでturbo-streamのレスポンスを要求している場合、update.turbo_stream.erbがレンダリングされる
+      flash.now.notice = "ねこを更新しました。"
     else
       render :edit, status: :unprocessable_entity
     end
