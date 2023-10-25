@@ -57,14 +57,10 @@
           <%= link_to icon_with_text("plus-circle", "登録"),
                       new_cat_path,
                       class: "btn btn-outline-primary",
-                      data: { turbo_frame: dom_id(Cat.new) }
+                      data: { turbo_frame: "modal" }
           %>
         </div>
       </div>
-
-      <%# 登録リンククリック時に、cats#newの新規登録フォーム部分をここに置換する %>
-      <%# turbo_frame_tagの内部でdom_idを利用してくれるのでdom_idは不要 %>
-      <%= turbo_frame_tag Cat.new %>
 
       <div id="cats">
         <%= render @cats %>
